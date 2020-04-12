@@ -1,0 +1,120 @@
+/*****************************************************
+ * Magic Mirror                                      *
+ * Custom CSS                                        *
+ *                                                   *
+ * By Michael Teeuw http://michaelteeuw.nl           *
+ * MIT Licensed.                                     *
+ *                                                   *
+ * Add any custom CSS below.                         *
+ * Changes to this files will be ignored by GIT. *
+ *****************************************************/
+
+html {
+}
+
+body {
+    margin: 40px;
+    position: absolute;
+    height: calc(100% - 80px);
+    width: calc(100% - 80px);
+    font-size: 1.5em;
+}
+
+.x-medium {
+    font-size: 48px;
+}
+
+.tableheader, header {
+    font-size: 20px;
+}
+
+.region.right,
+.region.left {
+    width: 45%;
+}
+
+.MMM-FreeBox-Monitor #status {
+    font-size: 0.75em;
+}
+
+.calendar .fa.fa-users {
+    color: #F6BF26;
+}
+
+.calendar .fa.fa-fort-awesome {
+    color: #4285F4;
+}
+
+.calendar .fa.fa-rocket {
+    color: #E67C73;
+}
+
+.calendar .fa.fa-female {
+    color: #795548;
+}
+
+.calendar .fa.fa-user-circle {
+    color: #D50000;
+}
+
+.calendar .fa.fa-grav {
+    color: #B39DDB;
+}
+
+.module.mmm-moon-phases .module-content > div {
+    margin: 0 auto;
+}
+
+.region.middle.center {
+    text-align: left;
+}
+
+.weatherforecast {
+    font-size: 3em;
+}
+
+/**
+    Worldclock
+ */
+.worldclock .style-left .main,
+.worldclock .style-right .main,
+.worldclock .style-left .block-caption,
+.worldclock .style-right .block-caption {
+    width: 45%;
+}
+
+/*
+    MMM-Lunartic
+ */
+.MMM-Lunartic .DFCOE,
+.MMM-Lunartic .DFS,
+.MMM-Lunartic .age,
+.MMM-Lunartic .stage,
+.MMM-Lunartic .nextFullMoon,
+.MMM-Lunartic .illumination {
+    display: none;
+}
+
+.MMM-Lunartic .wrapper {
+    text-align: center;
+    margin: 0;
+}
+
+/*
+    MMM-NowPlayingOnSpotify
+ */
+.module-content .NPOS_coverArtArea {
+    text-align: center;
+}
+.module-content .NPOS_coverArtArea img {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.ns-alert {
+    background-color: #ffffff;
+}
+.ns-alert .ns-box-inner span {
+    color: black;
+    font-weight: 500;
+}

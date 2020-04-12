@@ -1,0 +1,64 @@
+MAILTO="your_email@gmail.com"
+###############
+# Pour configurer les emails : https://raspberry-projects.com/pi/software_utilities/email/ssmtp-to-send-emails
+# https://juliendubreuil.fr/blog/linux/configuration-serveur-ssmtp-avec-gmail/
+#######
+# Il est préférable d'utiliser postfix :
+# https://opentodo.net/2013/03/postfix-smtp-relay-to-smtp-gmail-com/
+###############
+
+
+###############
+## On vérifie d'abord l'espace disque
+0 0 * * * cd /home/pi/mm_config_automate/ ; bash disk_usage.sh
+## On met à jour les fichiers de mm_config_automate
+5 0 * * * cd /home/pi/mm_config_automate/; git checkout ./; git pull;
+## On importe le contenu du fichier crontab.txt dans le crontab à 00h10
+10 0 * * * cd /home/pi/mm_config_automate/; cat crontab.txt | crontab -
+
+###############
+## On peut maintenant lancer les scripts de routine
+15 0 * * * cd /home/pi/mm_config_automate/; bash update_files_config.sh
+20 0 * * * cd /home/pi/; pm2 restart mm;
+@monthly sudo reboot
+
+###############
+# Rentrée scolaire : 2 septembre
+30 0 2 9 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config.js config.js; pm2 restart mm
+
+###############
+# Vacances Toussaint : 19 octobre
+30 0 19 10 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config_vac.js config.js; pm2 restart mm
+# Rentrée : 4 novembre
+30 0 4 11 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config.js config.js; pm2 restart mm
+
+################
+# Vacances Noël : 21 décembre
+30 0 21 12 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config_vac.js config.js; pm2 restart mm
+# Rentrée : 6 janvier
+30 0 6 1 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config.js config.js; pm2 restart mm
+
+###############
+# Vacances Hiver : 8 février
+30 0 8 2 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config_vac.js config.js; pm2 restart mm
+# Rentrée : 24 février
+30 0 24 2 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config.js config.js; pm2 restart mm
+
+###############
+# Vacances printemps : 4 avril
+30 0 4 4 0 cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config_vac.js config.js; pm2 restart mm
+# Rentrée : 20 avril
+30 0 20 4 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config.js config.js; pm2 restart mm
+
+###############
+# Vacances Ascension : 20 mai
+30 0 20 5 0 cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config_vac.js config.js; pm2 restart mm
+# Rentrée : 25 mai
+30 0 25 5 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config.js config.js; pm2 restart mm
+
+###############
+# Grandes Vacances d'été : 4 juillet
+30 0 4 7 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config_vac.js config.js; pm2 restart mm
+# Rentrée : 1 septembre
+30 0 1 9 * cd /home/pi/MagicMirror/config/; rm -rf config.js; ln -s /home/pi/mm_config_automate/config.js config.js; pm2 restart mm
+
